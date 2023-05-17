@@ -1,0 +1,22 @@
+.GetProductsButton {
+  padding: 20px 40px;
+  background-color: black;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ImageCart {
+    border: 3px saddlebrown solid;
+    border-radius: 13px;
+    margin: 10px;
+}

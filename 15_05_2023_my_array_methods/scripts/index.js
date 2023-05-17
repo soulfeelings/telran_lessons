@@ -1,26 +1,26 @@
 const names = ["Sergey", "Andery", "Sasha"];
 
 const foundedNameByFind = names.find((item) => {
-  return item === 'Sasha'
-})
+  return item === "Sasha";
+});
 
-console.log('find', foundedNameByFind);
+console.log("find", foundedNameByFind);
 
 // find
 function myFind(array, callback) {
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
     if (callback(element)) {
-      return i
+      return i;
     }
   }
 }
 
 const foudedNameByMyFind = myFind(names, (item) => {
-  return item === 'Sasha'; 
-})
+  return item === "Sasha";
+});
 
-console.log('myFind', foudedNameByMyFind);
+console.log("myFind", foudedNameByMyFind);
 
 /*
 // console.log(names);
@@ -64,3 +64,18 @@ console.log(names, newNames);
   второй аргумент - это начальное значение 
 */
 
+const array = [1, 5, 98, 50, -96, -50]
+
+function square(number) {
+  return number * number;
+}
+
+function myMap(arr, callback) {
+  const newArr = []
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(1)
+    return [1]
+  }
+}
+
+console.log([1])
