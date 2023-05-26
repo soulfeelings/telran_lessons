@@ -40,6 +40,7 @@ get_product();
 const form = document.querySelector(".SortPriceForm");
 const { min, max, button } = form;
 
+button.onclick = (event) => {}
 button.addEventListener("click", (event) => {
   event.preventDefault();
 
