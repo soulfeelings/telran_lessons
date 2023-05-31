@@ -11,3 +11,7 @@
   background-color: aqua;
   flex-grow: 1;
 }
+
+.Chats__list {
+  padding: 8px 7px;
+}
