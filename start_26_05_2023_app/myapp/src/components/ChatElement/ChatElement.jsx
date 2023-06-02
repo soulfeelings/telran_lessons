@@ -1,21 +1,24 @@
+import { useRef } from "react";
 import "./ChatElement.css";
 
-const time = "13:10";
+export default function ChatElement(props) {
+  // Для Леши :) не повторяйте это дома
+  // const { avatar, title, time, description } = props;
 
-export default function ChatElement() {
+  const ref = useRef();
+
+  const className = props.isBlue
+    ? "ChatElement ChatElement--blue"
+    : "ChatElement";
+
   return (
-    <div className="ChatElement">
-      <img
-        className="ChatElement__avatar"
-        src="https://amiel.club/uploads/posts/2022-03/1647766434_9-amiel-club-p-kartinki-chat-10.png"
-      />
+    <div ref={ref} className={className} onClick={props.handleClick}>
+      <img className="ChatElement__avatar" src={props.avatar} />
       <div className="ChatElement__content">
-        <p className="ChatElement__title">Title</p>
-        <p className="ChatElement__description">
-          {"Мама пошла в магазин за яблоками"}
-        </p>
+        <p className="ChatElement__title">{props.title}</p>
+        <p className="ChatElement__description">{props.description}</p>
       </div>
-      <div className="ChatElement__time">{time}</div>
+      <div className="ChatElement__time">{props.time}</div>
     </div>
   );
 }

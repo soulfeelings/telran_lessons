@@ -1,9 +1,11 @@
 import "./App.css";
 import ChatsHeader from "./components/ChatsHeader/ChatsHeader";
 import ChatElement from "./components/ChatElement/ChatElement";
+import { useState } from "react";
 
 const chats = [
   {
+    id: 0,
     avatar:
       "https://amiel.club/uploads/posts/2022-03/1647766434_9-amiel-club-p-kartinki-chat-10.png",
     title: "Chat number 1",
@@ -11,6 +13,7 @@ const chats = [
     last_msg_time: "23:59",
   },
   {
+    id: 1,
     avatar:
       "https://cdn.britannica.com/89/164789-050-D6B5E2C7/Barack-Obama-2012.jpg",
     title: "Presidents chat",
@@ -18,6 +21,7 @@ const chats = [
     last_msg_time: "01:11",
   },
   {
+    id: 2,
     avatar:
       "https://amiel.club/uploads/posts/2022-03/1647766434_9-amiel-club-p-kartinki-chat-10.png",
     title: "Chat number 1",
@@ -25,6 +29,7 @@ const chats = [
     last_msg_time: "23:59",
   },
   {
+    id: 3,
     avatar:
       "https://cdn.britannica.com/89/164789-050-D6B5E2C7/Barack-Obama-2012.jpg",
     title: "Presidents chat",
@@ -34,13 +39,28 @@ const chats = [
 ];
 
 function App() {
+  const [currentID, setCurrentId] = useState();
+  console.log(currentID, 'render');
+
   return (
     <div className="App">
       <div className="Chats">
         <ChatsHeader />
         <div className="Chats__list">
-          {chats.map(() => {
-            return <ChatElement />;
+          {chats.map((chatItem) => {
+            return (
+              <ChatElement
+                key={chatItem.id}
+                isBlue={chatItem.id === currentID}
+                avatar={chatItem.avatar}
+                title={chatItem.title}
+                description={chatItem.description}
+                time={chatItem.last_msg_time}
+                handleClick={() => {
+                  setCurrentId(chatItem.id);
+                }}
+              />
+            );
           })}
         </div>
       </div>

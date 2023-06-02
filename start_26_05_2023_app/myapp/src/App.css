@@ -5,6 +5,8 @@
 
 .Chats {
   width: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .ChatWindow {
@@ -14,4 +16,5 @@
 
 .Chats__list {
   padding: 8px 7px;
+  overflow: auto;
 }
