@@ -11,8 +11,7 @@
 }
 
 .UserInfo__icons {
-  width: 150px;
-  background-color: aquamarine;
+  display: flex;
 }
 
 .UserInfo__avatar {
