@@ -5,6 +5,8 @@ import { useState } from "react";
 import UserInfo from "./components/UserInfo/UserInfo";
 import RecordButton from "./components/RecordButton/RecordButton";
 import chats from "./mock/chats";
+import ChatBackground from "./components/ChatBackground/ChatBackground";
+import NewMessage from "./components/NewMessage/NewMessage";
 
 function App() {
   const [currentID, setCurrentId] = useState(+localStorage.getItem("chatId"));
@@ -36,15 +38,9 @@ function App() {
         </div>
       </div>
       <div className="ChatWindow">
+        <ChatBackground />
         <UserInfo title={chat.title} avatar={chat.avatar} />
-        <div
-          className="RecordButton__wrapper"
-          style={{
-            height: "600px",
-          }}
-        >
-          <RecordButton />
-        </div>
+        <NewMessage />
       </div>
     </div>
   );
