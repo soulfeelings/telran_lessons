@@ -3,15 +3,28 @@ import ChatsHeader from "./components/ChatsHeader/ChatsHeader";
 import ChatElement from "./components/ChatElement/ChatElement";
 import { useState } from "react";
 import UserInfo from "./components/UserInfo/UserInfo";
-import RecordButton from "./components/RecordButton/RecordButton";
 import chats from "./mock/chats";
 import ChatBackground from "./components/ChatBackground/ChatBackground";
 import NewMessage from "./components/NewMessage/NewMessage";
+import ChatMessages from "./components/ChatMessages/ChatMessages";
 
 function App() {
   const [currentID, setCurrentId] = useState(+localStorage.getItem("chatId"));
   const [chat, setChat] = useState({});
-  console.log("render");
+  const [chatsMessages, setChatMessages] = useState([
+    {
+      id: 0,
+      text: "Hello",
+    },
+    {
+      id: 1,
+      text: "Fine",
+    },
+    {
+      id: 2,
+      text: "Hello mam",
+    },
+  ]);
 
   return (
     <div className="App">
@@ -40,6 +53,7 @@ function App() {
       <div className="ChatWindow">
         <ChatBackground />
         <UserInfo title={chat.title} avatar={chat.avatar} />
+        <ChatMessages messages={chatsMessages} />
         <NewMessage />
       </div>
     </div>

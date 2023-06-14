@@ -1,4 +1,4 @@
-import RecordButton from "../RecordButton/RecordButton";
+import SendButton from "../SendButton/SendButton";
 import "./NewMessage.css";
 
 export default function NewMessage() {
@@ -6,10 +6,10 @@ export default function NewMessage() {
     <div className="NewMessage">
       <div className="MessageWrapper">
         <i className="fa-regular fa-face-smile"></i>
-        <input placeholder="Message"/>
+        <input placeholder="Message" />
         <i className="fa-solid fa-paperclip"></i>
       </div>
-      <RecordButton />
+      <SendButton />
     </div>
   );
 }
