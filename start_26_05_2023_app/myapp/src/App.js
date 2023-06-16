@@ -10,28 +10,16 @@ import ChatMessages from "./components/ChatMessages/ChatMessages";
 
 function App() {
   const [currentID, setCurrentId] = useState(+localStorage.getItem("chatId"));
-  const [chat, setChat] = useState({});
-  const [chatsMessages, setChatMessages] = useState([
-    {
-      id: 0,
-      text: "Hello",
-    },
-    {
-      id: 1,
-      text: "Fine",
-    },
-    {
-      id: 2,
-      text: "Hello mam",
-    },
-  ]);
+  const [chatsState, setChatsState] = useState(chats);
+
+  const chat = chatsState.find((element) => element.id === currentID);
 
   return (
     <div className="App">
       <div className="Chats">
         <ChatsHeader />
         <div className="Chats__list">
-          {chats.map((chatItem) => {
+          {chatsState.map((chatItem) => {
             return (
               <ChatElement
                 key={chatItem.id}
@@ -42,7 +30,6 @@ function App() {
                 time={chatItem.last_msg_time}
                 handleClick={() => {
                   setCurrentId(chatItem.id);
-                  setChat(chatItem);
                   localStorage.setItem("chatId", chatItem.id);
                 }}
               />
@@ -53,11 +40,40 @@ function App() {
       <div className="ChatWindow">
         <ChatBackground />
         <UserInfo title={chat.title} avatar={chat.avatar} />
-        <ChatMessages messages={chatsMessages} />
-        <NewMessage />
+        <ChatMessages messages={chat.messages} />
+        <NewMessage
+          chatsMessages={chat.messages}
+          setChatMessages={(chat_messages) => {
+            setChatsState(
+              chatsState.map((element) => {
+                if (element.id === currentID) {
+                  return { ...element, messages: chat_messages };
+                } else {
+                  return element;
+                }
+              })
+            );
+
+            // Вариант 2 - чтобы быть уверенным в последнем состоянии
+            // setChatsState((prevState) => {
+            //   // console.log("prevState", prevState);
+            //   return prevState.map((element) => {
+            //     if (element.id === currentID) {
+            //       return { ...element, messages: chat_messages };
+            //     } else {
+            //       return element;
+            //     }
+            //   });
+            // });
+          }}
+        />
       </div>
     </div>
   );
+}
+
+function getElement(element) {
+  
 }
 
 export default App;

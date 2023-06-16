@@ -105,4 +105,4 @@ const chats = [
   },
 ];
 
-export default chats;
+export default chats.map((chat) => ({ ...chat, messages: [] }));
