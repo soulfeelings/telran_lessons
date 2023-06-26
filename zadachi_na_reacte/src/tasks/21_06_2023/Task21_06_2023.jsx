@@ -21,6 +21,8 @@ export default function Task21_06_2023() {
       <input type="number" value={numbers.count2} onChange={input2} />
       <p>=</p>
       <p>{numbers.count + numbers.count2}</p>
+
+      {numbers.count === 8 && <p>Error</p>}
     </div>
   );
 }
